@@ -1,5 +1,8 @@
 @import "colors";
 @import "header";
+@import "main-form";
+@import "input-group";
+@import "preview";
 
 body {
   background-color: white;
@@ -7,6 +10,10 @@ body {
   margin: 0;
 
   font-family: system-ui, sans-serif;
+
+  .font-bold {
+    font-weight: bold;
+  }
 
   a {
     color: rgba($headerColor, 0.48); /* цвет ссылки */
@@ -24,5 +31,35 @@ body {
   a:active {
     color: blue; /* цвет активной ссылки */
   }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .form-title {
+    //@extend .font-bold;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-content: center;
+    height: 3rem;
+    width: 100%;
+    background-color: $kids-back;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
 }
 

@@ -1,28 +1,43 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
-import type { IKids, IPersonal, TChangingRecord } from '@/types/form.interfaces';
+import type { IPersonal, TChangingRecord } from '@/types/form.interfaces';
 
 export const useFormStore = defineStore('formStore', () => {
   const owner = ref<IPersonal>({});
   const kids = ref<IPersonal[]>([]);
+  let id: number = 0;
 
-  function changeRecord(newRecord: IPersonal, changingRecord: TChangingRecord, index: number = -1) {
+  function changeRecord(newRecord: IPersonal, changingRecord: TChangingRecord, id: number = -1) {
     let currentRecord: IPersonal;
     if (changingRecord === 'owner') {
       currentRecord = owner.value;
     } else {
-      if (index > -1) currentRecord = kids.value[index];
+      let tempRecord = kids.value.find((p) => p.id === id);
+      if (tempRecord) currentRecord = tempRecord;
+      else currentRecord = kids.value[0];
     }
-    if (newRecord.name) currentRecord.name = newRecord.name;
-    if (newRecord.age) currentRecord.age = newRecord.age;
+    currentRecord.name = newRecord.name;
+    currentRecord.age = newRecord.age;
   }
 
   function addKid() {
-    kids.value.pop();
+    kids.value.push({ id: id, name: '', age: 0 });
+    id++;
   }
 
-  function deleteKid(index: number) {
-    kids.value.splice(index, 1);
+  function deleteKid(id: number) {
+    kids.value = kids.value.filter((p) => p.id !== id);
+  }
+
+  function setAllStore(newStore: string) {
+    const storeRecord = JSON.parse(newStore);
+    owner.value = storeRecord.owner;
+    kids.value = storeRecord.kids;
+    if (kids.value.length <= 0) {
+      id = 0;
+    } else {
+      id = (kids.value[kids.value.length - 1].id as number) + 1;
+    }
   }
 
   return {
@@ -31,5 +46,6 @@ export const useFormStore = defineStore('formStore', () => {
     changeRecord,
     addKid,
     deleteKid,
+    setAllStore,
   };
 });

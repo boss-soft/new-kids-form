@@ -1,0 +1,30 @@
+.main-form {
+  width: 650px;
+
+  .kids-form-title {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+  }
+
+  .btn {
+    height: 3rem;
+    border-radius: 2rem;
+    padding: 0 2rem;
+    border: solid 1px blue;
+    background-color: white;
+    color: blue;
+  }
+
+  .btn-blue {
+    @extend .btn;
+    margin-top: 2rem;
+    padding: 0 2rem;
+    border: none !important;
+    background-color: blue !important;
+    color: white !important;
+  }
+}

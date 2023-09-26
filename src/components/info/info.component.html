@@ -1,3 +1,34 @@
-<div>
-    INFO.component
+<div class="form-container">
+    <!--        <div class="row">-->
+    <div :class="{
+        'column': currentRecord==='kid',
+        'row': currentRecord==='owner'
+    }">
+        <div class="form-floating mb-3">
+            <input
+                    v-model="modelName"
+                    class="form-control"
+                    type="text"
+                    @input="saveToStore"
+            >
+            <label>Имя</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input
+                    v-model="modelAge"
+                    class="form-control"
+                    type="number"
+                    @input="saveToStore"
+            >
+            <label for="floatingInput">Возраст</label>
+        </div>
+        <div v-if="currentRecord==='kid'">
+                <span
+                        class="fake-link"
+                        @click="deleteFromStore"
+                >
+                    Удалить
+                </span>
+        </div>
+    </div>
 </div>

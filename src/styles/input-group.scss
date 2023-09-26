@@ -1,0 +1,48 @@
+.form-floating {
+
+  position: relative;
+  width: 100%;
+
+  .form-control {
+    height: calc(2rem + 2px);
+    padding-top: 1rem;
+    padding-left: .75rem;
+  }
+
+  input {
+    width: 100%;
+    border-radius: .3rem;
+    border: 1px solid rgba($headerColor, 0.48);
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: .75rem;
+    padding-top: .3rem;
+    color: #6c757d;
+    font-size: 0.7rem;
+  }
+
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.column {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+
+  .fake-link {
+    color: blue;
+    cursor: pointer;
+  }
+}

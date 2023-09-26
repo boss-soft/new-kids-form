@@ -1,3 +1,20 @@
-<div>
-    PREVIEW.view
+<div v-if="store.owner" class="main-form">
+    <div class="form-title">
+        Персональные данные
+    </div>
+    <div class="font-bold">
+        {{ store.owner.name }}, {{ ageToText(store.owner.age) }}
+    </div>
+    <div class="form-title padding-top-3">
+        Дети
+    </div>
+    <div class="row">
+        <div
+                v-for="kid in store.kids"
+                class="font-bold kid-form"
+        >
+            {{ kid.name }}, {{ ageToText(kid.age) }}
+        </div>
+    </div>
+
 </div>
