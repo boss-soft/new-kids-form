@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 100px;
+  border-bottom: 1px darkgrey solid;
+  color: rgba($headerColor, 0.48);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}

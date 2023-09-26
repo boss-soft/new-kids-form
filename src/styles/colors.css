@@ -1,0 +1,21 @@
+/* Error: Missing argument $amount.
+ *   ,--> colors.scss
+ * 1 | $headerColor: #111111 opacify(48%);
+ *   |                       ^^^^^^^^^^^^ invocation
+ *   '
+ *   ,--> sass:color
+ * 1 | @function opacify($color, $amount) {
+ *   |           ======================== declaration
+ *   '
+ *   colors.scss 1:23  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Missing argument $amount.\a   \250c \2500 \2500 > colors.scss\a 1 \2502  $headerColor: #111111 opacify(48%);\d\a   \2502                        ^^^^^^^^^^^^ invocation\a   \2575 \a   \250c \2500 \2500 > sass:color\a 1 \2502  @function opacify($color, $amount) {\a   \2502            \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501  declaration\a   \2575 \a   colors.scss 1:23  root stylesheet";
+}

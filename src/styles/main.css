@@ -1,0 +1,42 @@
+@charset "UTF-8";
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 100px;
+  border-bottom: 1px darkgrey solid;
+  color: rgba(17, 17, 17, 0.48);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+body {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+body a {
+  color: rgba(17, 17, 17, 0.48); /* цвет ссылки */
+  text-decoration: none; /* убираем подчёркивание */
+}
+body a:visited {
+  color: rgba(17, 17, 17, 0.48); /* цвет посещенной ссылки */
+}
+body a:hover {
+  text-decoration: underline; /* добавляем подчёркивание при наведении */
+}
+body a:active {
+  color: blue; /* цвет активной ссылки */
+}
+
+/*# sourceMappingURL=main.css.map */

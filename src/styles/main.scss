@@ -1,0 +1,28 @@
+@import "colors";
+@import "header";
+
+body {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+
+  font-family: system-ui, sans-serif;
+
+  a {
+    color: rgba($headerColor, 0.48); /* цвет ссылки */
+    text-decoration: none; /* убираем подчёркивание */
+  }
+
+  a:visited {
+    color: rgba($headerColor, 0.48); /* цвет посещенной ссылки */
+  }
+
+  a:hover {
+    text-decoration: underline; /* добавляем подчёркивание при наведении */
+  }
+
+  a:active {
+    color: blue; /* цвет активной ссылки */
+  }
+}
+
