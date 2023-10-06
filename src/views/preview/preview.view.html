@@ -1,12 +1,15 @@
-<div v-if="store.owner" class="main-form">
+<div v-if="readyToShowOwner()" class="main-form">
     <div class="form-title">
         Персональные данные
     </div>
     <div class="font-bold">
         {{ store.owner.name }}, {{ ageToText(store.owner.age) }}
     </div>
-    <div class="form-title padding-top-3">
+    <div v-if="store.kids.length >0 " class="form-title padding-top-3">
         Дети
+    </div>
+    <div v-else class="form-title padding-top-3">
+        Детей нет
     </div>
     <div class="row">
         <div
@@ -17,4 +20,9 @@
         </div>
     </div>
 
+</div>
+<div v-else class="main-form">
+    <div class="form-title">
+        Введите персональные данные
+    </div>
 </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, PropType, ref, watchEffect } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import { useFormStore } from '@/stores/form.store';
 import type { IPersonal, TChangingRecord } from '@/types/form.interfaces';
 
@@ -35,7 +35,8 @@ export default defineComponent({
       modelAge.value = record.value.age as number;
     }
 
-    function saveToStore() {
+    function saveToStore(event) {
+      if (event.target.name === 'ageInput') event.target.value = parseInt(event.target.value, 10);
       store.changeRecord(
         {
           name: modelName.value,

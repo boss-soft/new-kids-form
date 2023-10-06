@@ -8,6 +8,25 @@ export default defineComponent({
   setup() {
     const store = useFormStore();
 
+    function readyToShowOwner(): boolean {
+      let stop = false;
+      for (let kid of store.kids) {
+        stop = !kid.name || !kid.age || kid.age <= 0;
+        if (stop) break;
+      }
+      console.log('stop = ', stop);
+      return (
+        !stop &&
+        !(
+          Object.values(store.owner).length === 0 ||
+          !store.owner.name ||
+          store.owner.name == '' ||
+          !store.owner.age ||
+          store.owner.age <= 0
+        )
+      );
+    }
+
     function ageToText(age: number) {
       let num = age % 100;
       if (num >= 5 && num <= 20) {
@@ -26,6 +45,7 @@ export default defineComponent({
     return {
       ageToText,
       store,
+      readyToShowOwner,
     };
   },
 });

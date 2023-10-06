@@ -14,18 +14,40 @@ export default defineComponent({
     const store = useFormStore();
     const kids = ref<IPersonal[]>([]);
 
+    const sendDisabled = ref<boolean>(true);
+
     function fillKids() {
       kids.value = store.kids;
     }
 
     onMounted(() => {
       fillKids();
+      setDisabledSaveButton();
     });
 
     watch(
       () => store.kids,
       () => {
         fillKids();
+      },
+      { deep: true },
+    );
+
+    function setDisabledSaveButton() {
+      let stop = !store.owner.name || !store.owner.age;
+      if (!stop) {
+        for (let kid of store.kids) {
+          stop = !kid.name || !kid.age || kid.age <= 0;
+          if (stop) break;
+        }
+      }
+      sendDisabled.value = stop;
+    }
+
+    watch(
+      () => store,
+      () => {
+        setDisabledSaveButton();
       },
       { deep: true },
     );
@@ -47,6 +69,7 @@ export default defineComponent({
       kids,
       addKids,
       saveToStorage,
+      sendDisabled,
     };
   },
 });
